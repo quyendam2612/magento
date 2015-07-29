@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <rps module="queen_rps" translate="title">
+            <title>Responsive Product Slider</title>
+            <sort_order>999</sort_order>
+            <children>
+                <list module="queen_rps" translate="title">
+                    <title>List</title>
+                    <sort_order>0</sort_order>
+                    <action>adminhtml/rps/list</action>
+                </list>
+            </children>
+        </rps>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <rps module="queen_rps" translate="title">
+                        <title>Responsie Product Slider</title>
+                        <sort_order>0</sort_order>
+                        <children>
+                            <list translate="title">
+                                <sort_order>0</sort_order>
+                            </list>
+                        </children>
+                    </rps>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

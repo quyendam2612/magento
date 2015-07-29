@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_rps_list>
+        <reference name="content">
+            <block type="queen_rps/adminhtml_list" name="slider" />
+        </reference>
+    </adminhtml_rps_list>
+
+    <adminhtml_rps_edit>
+        <reference name="content">
+            <block type="queen_rps/adminhtml_edit" name="slider_edit"/>
+        </reference>
+    </adminhtml_rps_edit>
+</layout>
