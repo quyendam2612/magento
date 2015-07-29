@@ -8,7 +8,7 @@
                 <list module="queen_rps" translate="title">
                     <title>List</title>
                     <sort_order>0</sort_order>
-                    <action>adminhtml/rps/list</action>
+                    <action>adminhtml/rps/index</action>
                 </list>
             </children>
         </rps>

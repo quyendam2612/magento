@@ -35,9 +35,33 @@
                 <setup>
                     <module>Queen_Rps</module>
                 </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
             </queen_rps_setup>
+            <queen_rps_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </queen_rps_read>
+            <queen_rps_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </queen_rps_write>
         </resources>
     </global>
+    <frontend>
+        <routers>
+            <rps>
+                <use>standard</use>
+                <args>
+                    <module>Queen_Rps</module>
+                    <frontName>rps</frontName>
+                </args>
+            </rps>
+        </routers>
+    </frontend>
     <admin>
         <routers>
             <adminhtml>

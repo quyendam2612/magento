@@ -3,28 +3,21 @@
 class Queen_Rps_Adminhtml_RpsController extends Mage_Adminhtml_Controller_Action
 {
     public function indexAction() {
-        $this->_forward('list');
-    }
-
-    public function listAction() {
         $this->loadLayout();
         $this->renderLayout();
     }
 
-    public function gridAction() {
-        $this->loadLayout();
-        $this->getResponse()->setBody(
-            $this->getLayout()->createBlock('queen_rps/adminhtml_list_grid')->toHtml()
-        );
-    }
-
     public function newAction() {
-        $this->_forward('edit');
+        $this->loadLayout();
+        $this->_addContent($this->getLayout()->createBlock('queen_rps/adminhtml_slider_edit'))
+            ->_addLeft($this->getLayout()->createBlock('queen_rps/adminhtml_slider_edit_tabs'));
+        $this->renderLayout();
     }
 
     public function editAction()
     {
         $id = $this->getRequest()->getParam('id', null);
+
         $model = Mage::getModel('queen_rps/slider');
         if ($id) {
             $model->load((int) $id);
@@ -40,8 +33,12 @@ class Queen_Rps_Adminhtml_RpsController extends Mage_Adminhtml_Controller_Action
         }
         Mage::register('slider_data', $model);
 
+        $this->_title($this->__('Responsive Product Slider'))->_title($this->__('Edit slider'));
         $this->loadLayout();
         $this->getLayout()->getBlock('head')->setCanLoadExtJs(true);
+        $this->getLayout()->createBlock('queen_rps/adminhtml_slider_edit');
+        $this->_addContent($this->getLayout()->createBlock('queen_rps/adminhtml_slider_edit'))
+            ->_addLeft($this->getLayout()->createBlock('queen_rps/adminhtml_slider_edit_tabs'));
         $this->renderLayout();
     }
 
