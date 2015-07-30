@@ -29,6 +29,20 @@ class Queen_Rps_Block_Adminhtml_Slider_Edit_Tab_Products extends Mage_Adminhtml_
             'values'    => Mage::getModel('queen_rps/source_categories')->toOptionArray()
         ));
 
+        $action = 'getProductChooser(\'' . Mage::getUrl(
+                'adminhtml/promo_widget/chooser/attribute/sku/form/rule_conditions_fieldset',
+                array('_secure' => Mage::app()->getStore()->isAdminUrlSecure())
+            ) . '?isAjax=true\', [\'msj000\', \'msj001\']); return false;';
+        $fieldset->addField('prod_skus', 'textarea', array(
+            'label' => 'Product Sku(s)',
+            'name' => 'prod_skus',
+            'required' => false,
+            'class' => 'rule_conditions_fieldset',
+            'readonly' => true,
+            'onclick' => $action,
+        ));
+        $fieldset->addFieldset('product_chooser', array('legend' => ('')));
+
         $form->setValues($data);
 
         return parent::_prepareForm();

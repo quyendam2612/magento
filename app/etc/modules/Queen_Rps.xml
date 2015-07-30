@@ -4,9 +4,6 @@
         <Queen_Rps>
             <active>true</active>
             <codePool>local</codePool>
-            <depends>
-                <Jarlssen_ChooserWidget/>
-            </depends>
         </Queen_Rps>
     </modules>
 </config>

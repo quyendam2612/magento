@@ -3,6 +3,7 @@
 class Queen_Rps_Adminhtml_RpsController extends Mage_Adminhtml_Controller_Action
 {
     public function indexAction() {
+        $this->_title($this->__('Responsive Product Slider'))->_title($this->__('Slider Manager'));
         $this->loadLayout();
         $this->renderLayout();
     }
@@ -49,7 +50,10 @@ class Queen_Rps_Adminhtml_RpsController extends Mage_Adminhtml_Controller_Action
             $model = Mage::getModel('queen_rps/slider');
             $id = $this->getRequest()->getParam('id');
             if ($id) {
+                $data['updated'] = time();
                 $model->load($id);
+            } else {
+                $data['created'] = $data['updated'] = time();
             }
             $model->setData($data);
 

@@ -30,16 +30,16 @@ $table = $installer->getConnection()
     ->addColumn('data_type', Varien_Db_Ddl_Table::TYPE_TINYINT, null, array(
         'nullable'  => false,
     ), 'Category or Products')
-    ->addColumn('prod_ids', Varien_Db_Ddl_Table::TYPE_TEXT, null, array(
+    ->addColumn('prod_skus', Varien_Db_Ddl_Table::TYPE_TEXT, null, array(
         'nullable'  => false,
     ), 'Product Ids')
     ->addColumn('category_id', Varien_Db_Ddl_Table::TYPE_TINYINT, null, array(
         'nullable'  => false,
     ), 'Category Id')
-    ->addColumn('created', Varien_Db_Ddl_Table::TYPE_DATETIME, null, array(
+    ->addColumn('created', Varien_Db_Ddl_Table::TYPE_TEXT, null, array(
         'nullable'  => false,
     ), 'Created Date')
-    ->addColumn('updated', Varien_Db_Ddl_Table::TYPE_DATETIME, null, array(
+    ->addColumn('updated', Varien_Db_Ddl_Table::TYPE_TEXT, null, array(
         'nullable'  => false,
     ), 'Last Updated');
 $installer->getConnection()->createTable($table);

@@ -5,13 +5,9 @@
             <block type="queen_rps/adminhtml_slider" name="slider"/>
         </reference>
     </adminhtml_rps_index>
-
-    <!--<adminhtml_rps_edit>-->
-        <!--<reference name="content">-->
-            <!--<block type="queen_rps/adminhtml_slider_edit" name="slider_edit"/>-->
-        <!--</reference>-->
-        <!--&lt;!&ndash;<reference name="left">&ndash;&gt;-->
-            <!--&lt;!&ndash;<block type="queen_rps/adminhtml_edit_tabs" name="slider_edit_tabs" />&ndash;&gt;-->
-        <!--&lt;!&ndash;</reference>&ndash;&gt;-->
-    <!--</adminhtml_rps_edit>-->
+    <adminhtml_rps_edit>
+        <reference name="head">
+            <action method="addJs"><script>chooser/product.js</script></action>
+        </reference>
+    </adminhtml_rps_edit>
 </layout>

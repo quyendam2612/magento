@@ -16,6 +16,12 @@ class Queen_Rps_Block_Adminhtml_Slider_Grid extends Mage_Adminhtml_Block_Widget_
         return parent::_prepareCollection();
     }
 
+    public function styleDate($value, $row, $column, $isExport)
+    {
+        $date = Mage::helper('core')->formatDate(date('Y-m-d H:i:s', $value), Mage_Core_Model_Locale::FORMAT_TYPE_MEDIUM, true);
+        return $date;
+    }
+
     protected function _prepareColumns() {
         $this->addColumn('id', array(
             'header' => Mage::helper('queen_rps')->__('ID #'),
@@ -39,11 +45,22 @@ class Queen_Rps_Block_Adminhtml_Slider_Grid extends Mage_Adminhtml_Block_Widget_
             'renderer' => 'Queen_Rps_Block_Adminhtml_Slider_Renderer_Datatype'
         ));
 
-//        $this->addColumn('tag', array(
-//            'header' => Mage::helper('news')->__('Tag'),
-//            'width' => '150px',
-//            'index' => 'tag',
-//        ));
+        $this->addColumn('created', array(
+            'header' => Mage::helper('queen_rps')->__('Created Date'),
+            'width' => '150px',
+            'index' => 'created',
+            'type'  => 'datetime'
+        ));
+
+        $this->addColumn('updated', array(
+            'header' => Mage::helper('queen_rps')->__('Updated Date'),
+            'width' => '150px',
+            'index' => 'updated',
+//            'type'  => 'date',
+            'frame_callback' => array( $this,'styleDate')
+//            'format' => Mage::app()->getLocale()
+//                ->getDateTimeFormat(Mage_Core_Model_Locale::FORMAT_TYPE_MEDIUM),
+        ));
 //
 //
 //        $this->addColumn('date', array(
